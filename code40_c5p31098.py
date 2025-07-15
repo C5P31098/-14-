@@ -51,7 +51,15 @@ if __name__ =='__main__':
     for i in range(3): #３回登録
         id = i + 1 #iは0からなので1からにする
         name = input("商品名を入力してください")
-        price = int(input("金額を入力してください"))
+        while True:
+            try:
+                price = int(input("金額を入力してください"))
+                if price<=0: #一応０以下だったらエラーも追記
+                    raise ValueError
+                break
+            except ValueError:
+                print("エラーが発生しました")
+
         x.register_drink(id,name,price)
 
     x.show_drink_list() #一覧リスト表示
@@ -60,3 +68,4 @@ if __name__ =='__main__':
     input_money = int(input("お金の投入金額を入力してください"))
     x.calc_charge(input_money,buy_id)
 #---ここまで
+    x.slot()

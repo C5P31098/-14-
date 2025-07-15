@@ -1,4 +1,4 @@
-def oturi(price,money):
+def Charge(price,money):
     change=money-price
 
     print("おつりは",change,"円です。")
@@ -26,7 +26,9 @@ def oturi(price,money):
     print("5円玉は",change_5,"枚です。")
     print("1円玉は",change_1,"枚です。")
 
+    return change_1000,change_500,change_100,change_50,change_10,change_5,change_1
+
 if __name__ =='__main__':
     a1 = int(input("商品の値段を入力してください[円]:"))
     b1 = int(input("預かった金額を入力してください[円]:"))
-    x = oturi(a1,b1)
+    Charge(a1,b1)
